@@ -45,7 +45,7 @@ public:
         gettimeofday(&tv, NULL);
         t = tv.tv_sec;
     
-        char fmt[] = "%Y%m%e %H:%M:%S.%%dZ";
+        char fmt[] = "%Y%m%e %H:%M:%S.%%06dZ";
         char time_s[128], time_r[128];
         strftime(time_s , sizeof(time_s), fmt, gmtime(&t));
         sprintf(time_r, time_s, tv.tv_usec);
