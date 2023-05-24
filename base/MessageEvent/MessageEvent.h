@@ -6,8 +6,8 @@
 #define KINOKO_MESSAGEEVENT_H
 
 #include <nlohmann/json.hpp>
-#include "base/TypeDefine.h"
-#include "base/MessageEvent/MessageChain.h"
+#include "TypeDefine.h"
+#include "MessageChain.h"
 
 class MessageEvent {
 public:

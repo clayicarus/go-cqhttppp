@@ -6,7 +6,7 @@
 #define ATRI_LOGGER_H
 
 #include <string>
-// #include <vector>
+#include <ctime>
 
 class Logger {
 public:
@@ -35,6 +35,10 @@ public:
                     s.push_back(i);
             }
         }
+        time_t t;
+        time(&t);
+        char fmt[128] = "[%Y%m%e]";
+        // strftime(char *__restrict s, size_t maxsize, const char *__restrict format, const struct tm *__restrict tp)
         printf("%s [%s:%d]  %s\n", level, file, line, s.c_str());
         if(level == FATAL)
             abort();

@@ -6,7 +6,7 @@
 #define KINOKO_MESSAGECHAIN_H
 
 #include <nlohmann/json.hpp>
-#include "base/TypeDefine.h"
+#include "TypeDefine.h"
 
 class MessageBlock {
 public:

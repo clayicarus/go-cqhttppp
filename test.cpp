@@ -216,7 +216,7 @@ int main()
             }
         }
         if(msg.empty()) {
-            DEBUG_LOG("ononGroupMessage - recv empty msg");
+            DEBUG_LOG("onGroupMessage - recv empty msg");
             return;
         }
         auto insert_cmd = dump_as_insert(group_id, event.senderId(), time, msg);

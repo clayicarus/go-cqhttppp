@@ -3,8 +3,8 @@
 //
 
 #include "MessageEvent.h"
-#include "base/Logger.h"
-#include "base/BotConstant.h"
+#include "Logger.h"
+#include "BotConstant.h"
 
 MessageEvent::MessageEvent(const nlohmann::json &event)
     : raw_message(event["raw_message"]), font_(event["font"]),

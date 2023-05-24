@@ -1,8 +1,8 @@
 #ifndef GO_CQHTTPAPI_H
 #define GO_CQHTTPAPI_H
 
-#include "base/MessageEvent/MessageChain.h"
-#include "base/TypeDefine.h"
+#include "MessageEvent/MessageChain.h"
+#include "TypeDefine.h"
 #include "go-cqHttpEndPoint.h"
 
 void to_json(nlohmann::json& res, const MessageBlock& mb);

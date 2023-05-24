@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.22)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(.)
 find_package(cpr CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(unofficial-sqlite3 CONFIG REQUIRED)
@@ -30,6 +29,7 @@ set(SOURCE_LIST
         
         cqBot.cpp)
 
+include_directories(base)
 link_directories(lib)
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCE_LIST})
