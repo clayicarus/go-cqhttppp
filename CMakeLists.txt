@@ -22,6 +22,7 @@ set(SOURCE_LIST
         base/HttpParser.cpp
         base/base64.cpp
         base/sha1_portable.cpp
+        base/Logger.cpp
 
         base/MessageEvent/MessageEvent.cpp
         base/MessageEvent/MessageChain.cpp

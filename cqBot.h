@@ -37,7 +37,7 @@ public:
     void start() 
     { 
         ws_server_.start(); 
-        WARN_LOG(bot_name_ + " start");
+        WARN_LOG("cqBot - " + bot_name_ + " start");
     }
     void setGroupMessageCallback(MessageEventCallback cb) { groupMessageCallback = std::move(cb); }
     void setPrivateMessageCallback(MessageEventCallback cb) { privateMessageCallback = std::move(cb); }
