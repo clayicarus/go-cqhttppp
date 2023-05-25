@@ -199,13 +199,13 @@ int main()
     INFO_LOG("sqlite3 - Opened database successfully");
 
     auto onPrivateMessage = [](const MessageEvent &event, Qid self_id, int64_t time){
-        // DEBUG_LOG("private message");
+        INFO_LOG(" - onPrivateMessage " + event.rawEvent().dump());
         auto receiver = event.senderId();
         go_cqHttpAPI::send_private_message(receiver, event.messageChain());
     };
 
     auto onGroupMessage = [&](const MessageEvent &event, Qid self_id, int64_t time){
-        // DEBUG_LOG("private message");
+        INFO_LOG(" - onGroupMessage " + event.rawEvent().dump());
         Qid group_id = event.rawEvent().at("group_id").get<Qid>();
         std::string msg;
         for(const auto &i : event.messageChain().array()) {
@@ -222,7 +222,7 @@ int main()
         auto insert_cmd = dump_as_insert(group_id, event.senderId(), time, msg);
         rc = sqlite3_exec(db, insert_cmd.c_str(), NULL, NULL, &zErrMsg);
         if(rc != SQLITE_OK) {
-            ERROR_LOG(string("sqlite3 - intsert error: ") + zErrMsg);
+            ERROR_LOG(string("sqlite3 - \"") + insert_cmd + "\": " + zErrMsg);
             sqlite3_free(zErrMsg);
         } else {
             DEBUG_LOG("sqlite3 - insert successfully");

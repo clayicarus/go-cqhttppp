@@ -56,29 +56,29 @@ void cqBot::onPost(const std::string &msg) const
 
 void cqBot::messageSentHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("messageSentHandler - " + event.dump());
+    INFO_LOG("messageSentHandler - " + event.dump());
 }
 
 void cqBot::requestHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("requestHandler - " + event.dump());
+    INFO_LOG("requestHandler - " + event.dump());
 }
 void cqBot::noticeHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("noticeHandler - " + event.dump());
+    INFO_LOG("noticeHandler - " + event.dump());
 }
 void cqBot::metaEventHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("metaEventHandler - " + event.dump());
+    INFO_LOG("metaEventHandler - " + event.dump());
 }
 void cqBot::unknownHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("unknownHandler - " + event.dump());
+    INFO_LOG("unknownHandler - " + event.dump());
 }
 
 void cqBot::messageHandler(const nlohmann::json& event, Qid self_id, int64_t time) const
 {
-    DEBUG_LOG("messageHandler - " + event.dump());
+    INFO_LOG("messageHandler - message recv");
     for(const auto * i : message_event_paralist) {
         if(!event.contains(i)) {
             WARN_LOG("messageHandler - invalid event without " + std::string(i));

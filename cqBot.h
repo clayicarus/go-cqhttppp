@@ -15,7 +15,7 @@ public:
         : ws_server_(loop, muduo::net::InetAddress(listen_port)), 
           bot_name_(bot_name),
           messageCallback([this](const MessageEvent& event, Qid self_id, int64_t time){
-            DEBUG_LOG("on message - " + event.rawEvent().dump());
+            DEBUG_LOG("onMessageEvent - " + event.rawEvent().dump());
             switch(event.eventType()) {
                 case MessageEvent::Type::GROUP_MESSAGE:
                     groupMessageCallback(event, self_id, time);
@@ -24,7 +24,7 @@ public:
                     privateMessageCallback(event, self_id, time);
                     break;
                 default:
-                    WARN_LOG("not support message event type");
+                    WARN_LOG("onMessageEvent - not support message event type");
                     break;
             }
           }),
@@ -37,7 +37,7 @@ public:
     void start() 
     { 
         ws_server_.start(); 
-        WARN_LOG("cqBot - " + bot_name_ + " start");
+        INFO_LOG("cqBot - " + bot_name_ + " start");
     }
     void setGroupMessageCallback(MessageEventCallback cb) { groupMessageCallback = std::move(cb); }
     void setPrivateMessageCallback(MessageEventCallback cb) { privateMessageCallback = std::move(cb); }
