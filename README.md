@@ -1,6 +1,6 @@
 ## go-cqhttppp
 
-适用于 go-cqhttp 的轻量 C++ SDK。目前仅支持 Linux。
+适用于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 的轻量 C++ SDK。目前仅支持 Linux。
 
 ### 编译环境
 
